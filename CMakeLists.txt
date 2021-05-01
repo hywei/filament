@@ -367,12 +367,13 @@ endif()
 
 # By default, build with Vulkan support on desktop platforms, although clients must request to use
 # it at run time.
-if (WIN32 OR WEBGL OR IOS)
+if (WEBGL OR IOS)
     option(FILAMENT_SUPPORTS_VULKAN "Include the Vulkan backend" OFF)
 else()
     option(FILAMENT_SUPPORTS_VULKAN "Include the Vulkan backend" ON)
 endif()
 if (FILAMENT_SUPPORTS_VULKAN)
+    message(STATUS "Vulkan Support")
     add_definitions(-DFILAMENT_DRIVER_SUPPORTS_VULKAN)
 endif()
 
